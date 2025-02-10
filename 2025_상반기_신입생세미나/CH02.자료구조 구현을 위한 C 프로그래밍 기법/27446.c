@@ -29,7 +29,6 @@ int main() {
     int last = 0;  
     int result = 0; 
 
-    // 잃어버린 페이지 번호들 처리
     for (int i = 0; i < d_size; i++) {
         if (last) {
         }
