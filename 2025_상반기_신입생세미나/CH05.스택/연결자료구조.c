@@ -19,6 +19,7 @@ int isEmpty() {
 
 // 스택의 top에 원소를 삽입하는 연산
 void push(element item) {
+	// 필요할 때마다 새로운 메모리 블록 할당
 	stackNode* temp = (stackNode*)malloc(sizeof(stackNode));
 	temp->data = item;
 	temp->link = top; // 삽입 node를 top의 위에 연결
