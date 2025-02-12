@@ -9,13 +9,13 @@ int top = -1; // top 초기화
 
 // 스택이 공백 상태인지 확인하는 연산
 int isEmpty() {
-	if (top == -1) return -1;
+	if (top == -1) return 1;
 	else return 0;
 }
 
 // 스택이 포화 상태인지 확인하는 연산
 int isFull() {
-	if (top == STACK_SIZE - 1) return -1;
+	if (top == STACK_SIZE - 1) return 1;
 	else return 0;
 }
 
