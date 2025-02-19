@@ -9,7 +9,7 @@ typedef struct stackNode { // 스택의 노드를 구조체로 정의
 	struct stackNode *link;
 } stackNode;
 
-stackNode* top; // 스택의 top 노드를 저장하기 위해 포인터 top 선언
+stackNode* top; // 스택의 top 노드를 지정하기 위해 포인터 top 선언
 
 // 스택이 공백 상태인지 확인하는 연산
 int isEmpty() {
