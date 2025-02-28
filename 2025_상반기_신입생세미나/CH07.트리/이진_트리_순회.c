@@ -8,7 +8,7 @@ typedef struct treenode {
 	struct treenode* right;
 } treenode;
 
-// data∏¶ ∑Á∆Æ ≥ÎµÂ∑Œ «œø© øﬁ¬  º≠∫Í ∆Æ∏Æ & ø¿∏•¬  º≠∫Í ∆Æ∏Æ ø¨∞·
+// dataÎ•º Î£®Ìä∏ ÎÖ∏ÎìúÎ°ú ÌïòÏó¨ ÏôºÏ™Ω ÏÑúÎ∏å Ìä∏Î¶¨ & Ïò§Î•∏Ï™Ω ÏÑúÎ∏å Ìä∏Î¶¨ Ïó∞Í≤∞
 treenode* makerootnode(char data, treenode* leftnode, treenode* rightnode) {
 	treenode* root = (treenode*)malloc(sizeof(treenode));
 	root->data = data;
@@ -17,7 +17,7 @@ treenode* makerootnode(char data, treenode* leftnode, treenode* rightnode) {
 	return root;
 }
 
-// ¿Ã¡¯ ∆Æ∏Æ ¿¸¿ß º¯»∏ (D-L-R)
+// Ïù¥ÏßÑ Ìä∏Î¶¨ Ï†ÑÏúÑ ÏàúÌöå (D-L-R)
 void preorder(treenode* root) {
 	if (root) {
 		printf("%c", root->data);
@@ -26,7 +26,7 @@ void preorder(treenode* root) {
 	}
 }
 
-// ¿Ã¡¯ ∆Æ∏Æ ¡ﬂ¿ß º¯»∏ (L-D-R)
+// Ïù¥ÏßÑ Ìä∏Î¶¨ Ï§ëÏúÑ ÏàúÌöå (L-D-R)
 void inorder(treenode* root) {
 	if (root) {
 		inorder(root->left);
@@ -35,7 +35,7 @@ void inorder(treenode* root) {
 	}
 }
 
-// ¿Ã¡¯ ∆Æ∏Æ »ƒ¿ß º¯»∏ (L-R-D)
+// Ïù¥ÏßÑ Ìä∏Î¶¨ ÌõÑÏúÑ ÏàúÌöå (L-R-D)
 void postorder(treenode* root) {
 	if (root) {
 		postorder(root->left);
@@ -45,7 +45,7 @@ void postorder(treenode* root) {
 }
 
 void main() {
-	// (A*B-C/D)∏¶ ¿Ã¡¯ ∆Æ∏Æ∑Œ ∏∏µÈ±‚
+	// (A*B-C/D)Î•º Ïù¥ÏßÑ Ìä∏Î¶¨Î°ú ÎßåÎì§Í∏∞
 	treenode* n7 = makerootnode('D', NULL, NULL);
 	treenode* n6 = makerootnode('C', NULL, NULL);
 	treenode* n5 = makerootnode('B', NULL, NULL);
