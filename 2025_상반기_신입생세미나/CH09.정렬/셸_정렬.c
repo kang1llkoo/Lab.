@@ -2,7 +2,7 @@
 typedef int element;
 int size;
 
-// ºÎºĞÁıÇÕ¿¡ ´ëÇØ ¼Ğ Á¤·Ä ¼öÇà
+// ë¶€ë¶„ì§‘í•©ì— ëŒ€í•´ ì…¸ ì •ë ¬ ìˆ˜í–‰
 void intervalSort(element a[], int begin, int end, int interval) {
 	int i, j;
 	element item;
@@ -16,9 +16,9 @@ void intervalSort(element a[], int begin, int end, int interval) {
 
 void shellSort(int a[], int size) {
 	int i, t, interval;
-	printf("\n Á¤·ÄÇÒ ¿ø¼Ò : ");
+	printf("\n ì •ë ¬í•  ì›ì†Œ : ");
 	for (t = 0; t < size; t++) printf("%d ", a[t]);
-	printf("\n\n<<<<<<<<<< ¼Ğ Á¤·Ä ¼öÇà >>>>>>>>>>\n");
+	printf("\n\n<<<<<<<<<< ì…¸ ì •ë ¬ ìˆ˜í–‰ >>>>>>>>>>\n");
 	interval = size / 2;
 	while (interval >= 1) {
 		for (i = 0; i < interval; i++) intervalSort(a, i, size - 1, interval);
