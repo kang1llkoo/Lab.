@@ -2,13 +2,13 @@
 #define max 30
 typedef int element;
 int size;
-element sorted[max]; // ¿ø¼Ò¸¦ º´ÇÕÇÏº¯¼­ Á¤·ÄÇÒ »óÅÂ·Î ÀúÀåÇÒ ¹è¿­
+element sorted[max]; // ì›ì†Œë¥¼ ë³‘í•©í•˜ë³€ì„œ ì •ë ¬í•  ìƒíƒœë¡œ ì €ì¥í•  ë°°ì—´
 
 void merge(element a[], int m, int middle, int n) {
 	int i, j, k, t;
-	i = m; // Ã¹ ¹øÂ° ºÎºĞÁıÇÕ ½ÃÀÛ À§Ä¡ ¼³Á¤
-	j = middle + 1; // µÎ ¹øÂ° ºÎºĞÁıÇÕ ½ÃÀÛ À§Ä¡ ¼³Á¤
-	k = m; // ¹è¿­ sorted¿¡ Á¤·ÄµÈ ¿ø¼Ò¸¦ ÀúÀåÇÒ À§Ä¡ ¼³Á¤
+	i = m; // ì²« ë²ˆì§¸ ë¶€ë¶„ì§‘í•© ì‹œì‘ ìœ„ì¹˜ ì„¤ì •
+	j = middle + 1; // ë‘ ë²ˆì§¸ ë¶€ë¶„ì§‘í•© ì‹œì‘ ìœ„ì¹˜ ì„¤ì •
+	k = m; // ë°°ì—´ sortedì— ì •ë ¬ëœ ì›ì†Œë¥¼ ì €ì¥í•  ìœ„ì¹˜ ì„¤ì •
 
 	while (i <= middle && j <= n) {
 		if (a[i] <= a[j]) {
@@ -25,17 +25,17 @@ void merge(element a[], int m, int middle, int n) {
 	else for (t = i; t <= middle; t++, k++) sorted[k] = a[t];
 
 	for (t = m; t <= n; t++) a[t] = sorted[t];
-	printf("\n º´ÇÕ Á¤·Ä >> ");
+	printf("\n ë³‘í•© ì •ë ¬ >> ");
 	for (t = 0; t < size; t++)printf("%4d ", a[t]);
 }
 
-void mergeSort(element a[], int m, int n) {
+void mergeSort(element a[], int m, int n) { // mergesort(list, 0, size - 1)
 	int middle;
 	if (m < n) {
 		middle = (m + n) / 2;
-		mergeSort(a, m, middle); // ¾ÕºÎºĞ¿¡ ´ëÇÑ ºĞÇÒ ÀÛ¾÷ ¼öÇà
-		mergeSort(a, middle + 1, n); // µŞºÎºĞ¿¡ ´ëÇÑ ºĞÇÒ ÀÛ¾÷ ¼öÇà
-		merge(a, m, middle, n); // ºÎºĞÁıÇÕ¿¡ ´ëÇØ Á¤·Ä°ú º´ÇÕ ÀÛ¾÷ ¼öÇà
+		mergeSort(a, m, middle); // ì•ë¶€ë¶„ì— ëŒ€í•œ ë¶„í•  ì‘ì—… ìˆ˜í–‰
+		mergeSort(a, middle + 1, n); // ë’·ë¶€ë¶„ì— ëŒ€í•œ ë¶„í•  ì‘ì—… ìˆ˜í–‰
+		merge(a, m, middle, n); // ë¶€ë¶„ì§‘í•©ì— ëŒ€í•´ ì •ë ¬ê³¼ ë³‘í•© ì‘ì—… ìˆ˜í–‰
 	}
 }
 
@@ -43,9 +43,9 @@ void main() {
 	int t;
 	element list[8] = { 69, 10, 30, 2, 16, 8, 31, 22 };
 	size = 8;
-	printf("\n Á¤·ÄÇÒ ¿ø¼Ò >> ");
+	printf("\n ì •ë ¬í•  ì›ì†Œ >> ");
 	for (t = 0; t < size; t++) printf("%4d ", list[t]);
 
-	printf("\n\n<<<<<<<<<< º´ÇÕ Á¤·Ä ¼öÇà >>>>>>>>>>\n");
+	printf("\n\n<<<<<<<<<< ë³‘í•© ì •ë ¬ ìˆ˜í–‰ >>>>>>>>>>\n");
 	mergeSort(list, 0, size - 1);
 }
