@@ -4,7 +4,7 @@ typedef int element;
 int size;
 element sorted[max]; // 원소를 병합하변서 정렬할 상태로 저장할 배열
 
-void merge(element a[], int m, int middle, int n) {
+void merge(element a[], int m, int middle, int n) { // merge(list, 0, 1, size-1)
 	int i, j, k, t;
 	i = m; // 첫 번째 부분집합 시작 위치 설정
 	j = middle + 1; // 두 번째 부분집합 시작 위치 설정
