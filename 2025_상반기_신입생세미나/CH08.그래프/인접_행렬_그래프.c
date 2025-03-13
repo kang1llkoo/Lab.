@@ -2,41 +2,41 @@
 #include <stdlib.h>
 #define max_vertex 30
 
-// ±×·¡ÇÁ¸¦ ÀÎÁ¢ Çà·Ä·Î Ç¥ÇöÇÏ±â À§ÇÑ ±¸Á¶Ã¼ Á¤ÀÇ
+// ê·¸ë˜í”„ë¥¼ ì¸ì ‘ í–‰ë ¬ë¡œ í‘œí˜„í•˜ê¸° ìœ„í•œ êµ¬ì¡°ì²´ ì •ì˜
 typedef struct graphtype{
-	int n; // ±×·¡ÇÁ node ¼ö
-	int adjmatrix[max_vertex][max_vertex]; // 30*30ÀÇ 2Â÷¿ø ¹è¿­
+	int n; // ê·¸ë˜í”„ node ìˆ˜
+	int adjmatrix[max_vertex][max_vertex]; // 30*30ì˜ 2ì°¨ì› ë°°ì—´
 } graphtype;
 
-// °ø¹é ±×·¡ÇÁ »ı¼º
+// ê³µë°± ê·¸ë˜í”„ ìƒì„±
 void creategraph(graphtype* g) {
 	int i, j;
-	g->n = 0; // node °³¼ö¸¦ 0À¸·Î ÃÊ±âÈ­
+	g->n = 0; // node ê°œìˆ˜ë¥¼ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 	for (i = 0; i < max_vertex; i++) {
 		for (j = 0; j < max_vertex; j++)
-			g->adjmatrix[i][j] = 0; // ±×·¡ÇÁ g¿¡ ´ëÇÑ 2Â÷¿ø ¹è¿­ °ªÀ» ¸ğµÎ 0À¸·Î ÃÊ±âÈ­
+			g->adjmatrix[i][j] = 0; // ê·¸ë˜í”„ gì— ëŒ€í•œ 2ì°¨ì› ë°°ì—´ ê°’ì„ ëª¨ë‘ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 	}
 }
 
 void insertvertex(graphtype* g, int v) {
 	if (((g->n) + 1) > max_vertex) {
-		printf("\n ±×·¡ÇÁ Á¤Á¡ÀÇ °³¼ö¸¦ ÃÊ°úÇÏ¿´½À´Ï´Ù!");
+		printf("\n ê·¸ë˜í”„ ì •ì ì˜ ê°œìˆ˜ë¥¼ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤!");
 		return;
 	}
-	g->n++; // ±×·¡ÇÁ Á¤Á¡ÀÇ °³¼ö nÀ» ÇÏ³ª Áõ°¡
+	g->n++; // ê·¸ë˜í”„ ì •ì ì˜ ê°œìˆ˜ nì„ í•˜ë‚˜ ì¦ê°€
 }
 
-// ±×·¡ÇÁ g¿¡ °£¼± (u, v)¸¦ »ğÀÔÇÏ´Â ¿¬»ê
+// ê·¸ë˜í”„ gì— ê°„ì„  (u, v)ë¥¼ ì‚½ì…í•˜ëŠ” ì—°ì‚°
 void insertedge(graphtype* g, int u, int v) {
-	// °£¼± (u, v)¸¦ »ğÀÔÇÏ±â À§ÇØ Á¤Á¡ u¿Í v°¡ ±×·¡ÇÁ¿¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎ
+	// ê°„ì„  (u, v)ë¥¼ ì‚½ì…í•˜ê¸° ìœ„í•´ ì •ì  uì™€ vê°€ ê·¸ë˜í”„ì— ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸
 	if (u >= g->n || v >= g->n) {
-		printf("\n ±×·¡ÇÁ¿¡ ¾ø´Â Á¤Á¡ÀÔ´Ï´Ù!");
+		printf("\n ê·¸ë˜í”„ì— ì—†ëŠ” ì •ì ì…ë‹ˆë‹¤!");
 		return;
 	}
-	g->adjmatrix[u][v] = 1; // »ğÀÔÇÑ °£¼±¿¡ ´ëÇÑ 2Â÷¿ø ¹è¿­ÀÇ ¿ø¼Ò°ªÀ» 1·Î ¼³Á¤
+	g->adjmatrix[u][v] = 1; // ì‚½ì…í•œ ê°„ì„ ì— ëŒ€í•œ 2ì°¨ì› ë°°ì—´ì˜ ì›ì†Œê°’ì„ 1ë¡œ ì„¤ì •
 }
 
-// ±×·¡ÇÁ gÀÇ 2Â÷¿ø ¹è¿­°ªÀ» ¼ø¼­´ë·Î Ãâ·Â
+// ê·¸ë˜í”„ gì˜ 2ì°¨ì› ë°°ì—´ê°’ì„ ìˆœì„œëŒ€ë¡œ ì¶œë ¥
 void print_adjmatrix(graphtype* g) {
 	int i, j;
 	for (i = 0; i < (g->n); i++) {
@@ -56,9 +56,9 @@ void main() {
 	g4 = (graphtype*)malloc(sizeof(graphtype));
 	creategraph(g1); creategraph(g2); creategraph(g3); creategraph(g4);
 
-	// ±×·¡ÇÁ g1
+	// ê·¸ë˜í”„ g1
 	for (i = 0; i < 4; i++)
-		insertvertex(g1, i); // g1ÀÇ Á¤Á¡ 0~3 »ğÀÔ
+		insertvertex(g1, i); // g1ì˜ ì •ì  0~3 ì‚½ì…
 	insertedge(g1, 0, 1);
 	insertedge(g1, 0, 3);
 	insertedge(g1, 1, 0);
@@ -69,39 +69,39 @@ void main() {
 	insertedge(g1, 3, 0);
 	insertedge(g1, 3, 1);
 	insertedge(g1, 3, 2);
-	printf("\n g1ÀÇ ÀÎÁ¢ Çà·Ä");
+	printf("\n g1ì˜ ì¸ì ‘ í–‰ë ¬");
 	print_adjmatrix(g1);
 
-	// ±×·¡ÇÁ g2
+	// ê·¸ë˜í”„ g2
 	for (i = 0; i < 3; i++)
-		insertvertex(g2, i); // g2ÀÇ Á¤Á¡ 0~2 »ğÀÔ
+		insertvertex(g2, i); // g2ì˜ ì •ì  0~2 ì‚½ì…
 	insertedge(g2, 0, 1);
 	insertedge(g2, 0, 2);
 	insertedge(g2, 1, 0);
 	insertedge(g2, 1, 2);
 	insertedge(g2, 2, 0);
 	insertedge(g2, 2, 1);
-	printf("\n\n g2ÀÇ ÀÎÁ¢ Çà·Ä");
+	printf("\n\n g2ì˜ ì¸ì ‘ í–‰ë ¬");
 	print_adjmatrix(g2);
 
-	// ±×·¡ÇÁ g3
+	// ê·¸ë˜í”„ g3
 	for (i = 0; i < 4; i++)
-		insertvertex(g3, i); // g3ÀÇ Á¤Á¡ 0~3 »ğÀÔ
+		insertvertex(g3, i); // g3ì˜ ì •ì  0~3 ì‚½ì…
 	insertedge(g3, 0, 1);
 	insertedge(g3, 0, 3);
 	insertedge(g3, 1, 2);
 	insertedge(g3, 1, 3);
 	insertedge(g3, 2, 3);
-	printf("\n\n g3ÀÇ ÀÎÁ¢ Çà·Ä");
+	printf("\n\n g3ì˜ ì¸ì ‘ í–‰ë ¬");
 	print_adjmatrix(g3);
 
-	// ±×·¡ÇÁ g4
+	// ê·¸ë˜í”„ g4
 	for (i = 0; i < 3; i++)
-		insertvertex(g4, i); // g4ÀÇ Á¤Á¡ 0~2 »ğÀÔ
+		insertvertex(g4, i); // g4ì˜ ì •ì  0~2 ì‚½ì…
 	insertedge(g4, 0, 1);
 	insertedge(g4, 0, 2);
 	insertedge(g4, 1, 0);
 	insertedge(g4, 1, 2);
-	printf("\n\n g4ÀÇ ÀÎÁ¢ Çà·Ä");
+	printf("\n\n g4ì˜ ì¸ì ‘ í–‰ë ¬");
 	print_adjmatrix(g4);
 }
