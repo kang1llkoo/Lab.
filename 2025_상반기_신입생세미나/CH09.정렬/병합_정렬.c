@@ -4,7 +4,10 @@ typedef int element;
 int size;
 element sorted[max]; // 원소를 병합하변서 정렬할 상태로 저장할 배열
 
-void merge(element a[], int m, int middle, int n) { // merge(list, 0, 1, size-1)
+void merge(element a[], int m, int middle, int n) { 
+	// merge(list, 0, 0, 1)
+	// merge(list, 2, 2, 3)
+	// merge(list, 0, 1, 3)
 	int i, j, k, t;
 	i = m; // 첫 번째 부분집합 시작 위치 설정
 	j = middle + 1; // 두 번째 부분집합 시작 위치 설정
@@ -29,7 +32,10 @@ void merge(element a[], int m, int middle, int n) { // merge(list, 0, 1, size-1)
 	for (t = 0; t < size; t++)printf("%4d ", a[t]);
 }
 
-void mergeSort(element a[], int m, int n) { // mergesort(list, 0, size - 1)
+void mergeSort(element a[], int m, int n) {
+	// mergeSort(list, 0, 3)
+	// mergeSort(list, 0, 1)
+	// mergeSort(list, 2, 3)
 	int middle;
 	if (m < n) {
 		middle = (m + n) / 2;
