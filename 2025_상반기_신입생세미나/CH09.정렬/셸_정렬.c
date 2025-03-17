@@ -22,13 +22,10 @@ void shellSort(int a[], int size) { // shellSort(list, 4)
 	interval = size / 2;
 	while (interval >= 1) {
 		for (i = 0; i < interval; i++) intervalSort(a, i, size - 1, interval);
-		// intervalSort(list, 0, 3, 2)
-		// intervalSort(list, 1, 3, 2)
 		printf("\n interval = %d >> ", interval);
 		for (t = 0; t < size; t++) printf("%d ", a[t]);
 		printf("\n");
 		interval = interval / 2;
-		// intervalSort(list, 0, 3, 1)
 	}
 }
 
