@@ -1,57 +1,57 @@
 #include <stdio.h>
-#define SIZE 8
+#define SIZE 4
 
-// Èü Àç±¸¼º ÇÔ¼ö (ÃÖ´ë Èü)
-void makeheap(int a[], int h, int m) {
-    int temp = a[h]; // ºÎ¸ğ ³ëµå °ª ÀúÀå
+// í™ ì¬êµ¬ì„± (ìµœëŒ€ í™)
+void makeheap(int a[], int h, int m) { 
+    // makeheap(list, ë¶€ëª¨ ë…¸ë“œ index, í™ í¬ê¸°)
+    int temp = a[h]; // ë¶€ëª¨ ë…¸ë“œ ê°’ ì €ì¥
     int j;
-
-    for (j = 2 * h; j <= m; j *= 2) {
-        if (j < m && a[j] < a[j + 1]) { // µÎ ÀÚ½Ä Áß ´õ Å« °ª ¼±ÅÃ
+    
+    for (j = 2 * h + 1; j < m; j = 2 * j + 1) {
+        // j = ì™¼ìª½ ìì‹, j+1 = ì˜¤ë¥¸ìª½ ìì‹
+        if (j + 1 < m && a[j] < a[j + 1]) { // ë‘ ìì‹ ì¤‘ ë” í° ê°’ ì„ íƒ
             j++;
         }
-
-        if (temp >= a[j]) { // ºÎ¸ğ°¡ ÀÚ½Äº¸´Ù Å©´Ù¸é Èü ¼ºÁú À¯ÁöµÊ
+        if (temp >= a[j]) { // ë¶€ëª¨ê°€ ìì‹ë³´ë‹¤ í¬ë‹¤ë©´ í™ ì„±ì§ˆ ìœ ì§€ë¨
             break;
         }
-
-        a[j / 2] = a[j]; // ºÎ¸ğ ³ëµå¸¦ ÀÚ½Ä °ªÀ¸·Î ´ëÃ¼
+        a[(j - 1) / 2] = a[j]; // ë¶€ëª¨ ë…¸ë“œë¥¼ ìì‹ ê°’ìœ¼ë¡œ ëŒ€ì²´
     }
-    a[j / 2] = temp; // ¿ø·¡ ºÎ¸ğ ³ëµå¸¦ ¿Ã¹Ù¸¥ À§Ä¡¿¡ ÀúÀå
+    a[(j - 1) / 2] = temp; // ì›ë˜ ë¶€ëª¨ ë…¸ë“œë¥¼ ì˜¬ë°”ë¥¸ ìœ„ì¹˜ì— ì €ì¥
 }
 
-// Èü Á¤·Ä
+// í™ ì •ë ¬
 void heapsort(int a[], int n) {
     int i, temp;
 
-    // ÃÖ´ë Èü ±¸¼º
-    for (i = n / 2; i >= 1; i--) {
+    // ìµœëŒ€ í™ êµ¬ì„±
+    for (i = (n - 2) / 2; i >= 0; i--) {
         makeheap(a, i, n);
     }
 
-    // Á¤·Ä ¼öÇà
-    for (i = n - 1; i >= 1; i--) {
-        temp = a[1];     // ·çÆ®(ÃÖ´ñ°ª)°ú ¸¶Áö¸· ¿ä¼Ò¸¦ ±³È¯
-        a[1] = a[i + 1];
-        a[i + 1] = temp;
+    // ì •ë ¬ ìˆ˜í–‰
+    for (i = n - 1; i > 0; i--) {
+        temp = a[0];     // ë£¨íŠ¸(ìµœëŒ“ê°’)ê³¼ ë§ˆì§€ë§‰ ìš”ì†Œë¥¼ êµí™˜
+        a[0] = a[i];
+        a[i] = temp;
 
-        makeheap(a, 1, i);
+        makeheap(a, 0, i);
     }
 }
 
 int main() {
-    int list[SIZE + 1] = { 0, 69, 10, 30, 2, 16, 8, 31, 22 }; // 1¹ø ÀÎµ¦½ººÎÅÍ »ç¿ë
+    int list[SIZE] = {32, 10, 45, 8};
     int size = SIZE;
 
-    printf("Á¤·Ä Àü ¹è¿­ : ");
-    for (int i = 1; i <= size; i++) {
+    printf("ì •ë ¬ ì „ ë°°ì—´ : ");
+    for (int i = 0; i < size; i++) {
         printf("%d ", list[i]);
     }
 
     heapsort(list, size);
 
-    printf("\nÁ¤·Ä ÈÄ ¹è¿­ : ");
-    for (int i = 1; i <= size; i++) {
+    printf("\nì •ë ¬ í›„ ë°°ì—´ : ");
+    for (int i = 0; i < size; i++) {
         printf("%d ", list[i]);
     }
 
