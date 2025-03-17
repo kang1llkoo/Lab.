@@ -9,9 +9,9 @@ void merge(element a[], int m, int middle, int n) {
 	// merge(list, 2, 2, 3)
 	// merge(list, 0, 1, 3)
 	int i, j, k, t;
-	i = m; // 첫 번째 부분집합 시작 위치 설정
-	j = middle + 1; // 두 번째 부분집합 시작 위치 설정
-	k = m; // 배열 sorted에 정렬된 원소를 저장할 위치 설정
+	i = m; // 첫 번째 부분집합의 시작 인덱스
+	j = middle + 1; // 두 번째 부분집합의 시작 인덱스
+	k = m; // 병합된 배열을 저장할 인덱스
 
 	while (i <= middle && j <= n) {
 		if (a[i] <= a[j]) {
