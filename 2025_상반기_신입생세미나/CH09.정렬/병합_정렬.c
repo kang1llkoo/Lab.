@@ -30,12 +30,18 @@ void merge(element a[], int m, int middle, int n) {
 }
 
 void mergeSort(element a[], int m, int n) {
+	// mergeSort(list, 0, 3)
+	// mergeSort(list, 0, 1)
+	// mergeSort(list, 2, 3)
 	int middle;
 	if (m < n) {
 		middle = (m + n) / 2;
 		mergeSort(a, m, middle); // 앞부분에 대한 분할 작업 수행
+		// merge(list, 0, 0, 1)
 		mergeSort(a, middle + 1, n); // 뒷부분에 대한 분할 작업 수행
+		// merge(list, 2, 2, 3)
 		merge(a, m, middle, n); // 부분집합에 대해 정렬과 병합 작업 수행
+		// merge(list, 0, 1, 3)
 	}
 }
 
